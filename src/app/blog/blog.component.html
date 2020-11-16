@@ -1,0 +1,29 @@
+<div class="posts">
+    <div class="categorias">
+        <h2>Busca la categoría que mas te guste</h2>
+        <label>Categorias</label>
+        <select (change)='onChange($event)'>
+            <option>Todas la categorias</option>
+            <option value="futbol">Futbol</option>
+            <option value="baloncesto">Baloncesto</option>´
+            <option value="tenis">Tenis</option>
+            <option value="videojuegos">Videojuegos</option>
+
+        </select>
+    </div>
+    <div class="posts container">
+        <div class="post" *ngFor="let post of arrPosts; let indice=index">
+            <h3>{{post.title}}</h3>
+            <p>{{post.text}}</p>
+            <div class="">
+                <div class="imagen card" style="width: 18rem;">
+                    <h4>Autor: {{post.author}}</h4>
+                    <img class="card-img-top" [src]="post.image">
+
+                    <p class="card-text">Publicado: {{post.date | date:'dd/MM/yyyy'}}</p>
+                </div>
+            </div>
+            <button class="btn btn-danger" (click)="onClick(indice)">Eliminar Post</button>
+        </div>
+    </div>
+</div>
